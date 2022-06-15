@@ -3,13 +3,16 @@ package com.xaldigital.retojava.restapi.jsonapi.utils;
 import com.google.gson.Gson;
 import com.xaldigital.retojava.restapi.jsonapi.model.Consumer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
 public class RestConsumer {
 
-    private final String URL_API="https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=perl&site=stackoverflow";
+    @Value("${api.url}")
+    private String url_api;
+
     @Autowired
     RestTemplate restTemplate;
 
@@ -21,7 +24,7 @@ public class RestConsumer {
 
         String consumerStr = restTemplate
                 .getForObject(
-                        URL_API,
+                        url_api,
                         String.class);
 
         consumer = gson.fromJson(consumerStr, Consumer.class);
