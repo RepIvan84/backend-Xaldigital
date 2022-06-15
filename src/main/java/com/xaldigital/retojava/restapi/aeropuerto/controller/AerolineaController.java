@@ -16,15 +16,15 @@ public class AerolineaController {
     @Autowired
     private IAerolineaService service;
 
-   // @GetMapping
+   /* @GetMapping
     public ResponseEntity<List<Aerolinea>> listar() throws Exception {
         List<Aerolinea> lista = service.listar();
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
 
-   // @PostMapping
+    @PostMapping
     public ResponseEntity<Aerolinea> registrar(@RequestBody Aerolinea aerolinea) throws Exception {
         Aerolinea obj = service.registrar(aerolinea);
         return new ResponseEntity<>(obj, HttpStatus.CREATED);
-    }
+    }*/
 }

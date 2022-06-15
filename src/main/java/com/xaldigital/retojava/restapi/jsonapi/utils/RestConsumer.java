@@ -10,9 +10,10 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class RestConsumer {
 
-    @Value("${api.url}")
-    private String url_api;
+   // @Value("${api.url}")
+    //private String url_api;
 
+    private final String URL_API="https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=perl&site=stackoverflow";
     @Autowired
     RestTemplate restTemplate;
 
@@ -24,7 +25,7 @@ public class RestConsumer {
 
         String consumerStr = restTemplate
                 .getForObject(
-                        url_api,
+                        URL_API,
                         String.class);
 
         consumer = gson.fromJson(consumerStr, Consumer.class);

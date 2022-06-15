@@ -16,15 +16,15 @@ public class MovimientoController {
     @Autowired
     private IMovimientoService service;
 
-   // @GetMapping
+   /* @GetMapping
     public ResponseEntity<List<Movimiento>> listar() throws Exception {
         List<Movimiento> lista = service.listar();
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
 
-    //@PostMapping
+    @PostMapping
     public ResponseEntity<Movimiento> registrar(@RequestBody Movimiento movimiento) throws Exception {
         Movimiento obj = service.registrar(movimiento);
         return new ResponseEntity<>(obj, HttpStatus.CREATED);
-    }
+    }*/
 }

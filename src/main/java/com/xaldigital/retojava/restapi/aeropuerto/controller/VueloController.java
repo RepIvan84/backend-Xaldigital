@@ -1,16 +1,16 @@
 package com.xaldigital.retojava.restapi.aeropuerto.controller;
 
 import com.xaldigital.retojava.restapi.aeropuerto.dto.*;
+import com.xaldigital.retojava.restapi.aeropuerto.model.Vuelo;
 import com.xaldigital.retojava.restapi.aeropuerto.service.IVueloService;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -29,7 +29,7 @@ public class VueloController {
         List<Vuelo> lista = service.listar();
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }*/
-
+    @Schema(description = "Servicio que devuelve el Nombre del Aeropuerto con Mayor Movimiento en el Año")
     @GetMapping("/sql/1")
     public ResponseEntity<List<AeropuertoDTO>> obtenerNombreAeropuerto() throws Exception {
         List<AeropuertoI> nomAeropuerto = service.obtenerNombreAeropuerto();
@@ -74,7 +74,7 @@ public class VueloController {
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
-    /*@PostMapping
+   /* @PostMapping
     public ResponseEntity<Vuelo> registrar(@RequestBody Vuelo vuelo) throws Exception {
         Vuelo obj = service.registrar(vuelo);
         return new ResponseEntity<>(obj, HttpStatus.CREATED);
